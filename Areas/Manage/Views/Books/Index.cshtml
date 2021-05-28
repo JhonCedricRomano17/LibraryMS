@@ -1,0 +1,42 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@{ if (Model.Books != null)
+                {
+                    if (Model.Books.Items != null)
+                    {
+                        if (Model.Books.Items.Count > 0)
+                        {
+
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <table class="table table-bordered table-primary table table-responsive ">
+                <thead>
+                    <tr>
+                        <th class="text-center col-3">Title</th>
+                        <th class="text-center">Author</th>
+                        <th class="text-center">Publisher</th>
+                        <th class="text-center">BookID</th>
+                        <th class="text-center"><a href="#" onclick="newUser()"><i class="fas fa-plus"></i></a></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{ foreach (var book in Model.Books.Items)
+                        {
+<tr>
+    <td>@book.bktitle</td>
+    <td>@book.bkauthor</td>
+    <td>@book.bkpublisher</td>
+    <td>@book.BookID</td>
+  
+    <td>
+        <a href="#"><i class="fas fa-pen-nib"></i></a>
+        <a href="#" onclick="confirmDelete('@book.bktitle','book.author','book.Publisher')"><i class="fas fa-trash"></i></a>
+    </td>
+</tr> } }
+                </tbody>
+            </table>
+        </div>
+    </div> }
+                    }
+                } }
